@@ -157,6 +157,10 @@ const PostsRaw = (
                                             navigate(`/admin/posts/${item.id}`)
                                         }}>Edit</button>
                                         <button onClick={() => {
+                                            if(items.length === 1) {
+                                                setCategoryId(null);
+                                                setPage(1);
+                                            }
                                             destroy(item.id).then(() => {
                                                 fetch()
                                             })

@@ -23,6 +23,7 @@ const PostsRaw = (
             setOrderProperty,
             sortDirection,
             sortProperty,
+            categoryId,
             count,
             categories,
             setCategoryId
@@ -111,7 +112,7 @@ const PostsRaw = (
         <div style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
             <h3>Posts ({count})</h3>
             <div>
-                <select onChange={(e) => {
+                <select defaultValue={categoryId} onChange={(e) => {
                     const value = e.target.value;
                     setCategoryId(value);
                     setPage(1);

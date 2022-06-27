@@ -2988,6 +2988,7 @@ var PostsRaw = function PostsRaw(_ref) {
       setOrderProperty = _ref$PostsStore.setOrderProperty,
       sortDirection = _ref$PostsStore.sortDirection,
       sortProperty = _ref$PostsStore.sortProperty,
+      categoryId = _ref$PostsStore.categoryId,
       count = _ref$PostsStore.count,
       categories = _ref$PostsStore.categories,
       setCategoryId = _ref$PostsStore.setCategoryId;
@@ -3084,6 +3085,7 @@ var PostsRaw = function PostsRaw(_ref) {
         children: ["Posts (", count, ")"]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("select", {
+          defaultValue: categoryId,
           onChange: function onChange(e) {
             var value = e.target.value;
             setCategoryId(value);

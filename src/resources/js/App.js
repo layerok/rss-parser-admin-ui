@@ -19,34 +19,37 @@ function App() {
     return (
         <Provider {...stores}>
             <AuthProvider>
-                <Router>
-                    <Routes>
-                        <Route path="/" element={<Home />} />
-                        <Route path="/admin" element={
-                            <RequireAuth>
-                                <Dashboard/>
-                            </RequireAuth>
-                        } />
-                        <Route path="/admin/posts"  element={
-                            <RequireAuth>
-                                <Posts/>
-                            </RequireAuth>
+                <div className={"ma3"}>
+                    <Router>
+                        <Routes>
+                            <Route path="/" element={<Home />} />
+                            <Route path="/admin" element={
+                                <RequireAuth>
+                                    <Dashboard/>
+                                </RequireAuth>
                             } />
-                        <Route path="/admin/posts/:id"  element={
-                            <RequireAuth>
-                                <EditPost/>
-                            </RequireAuth>
-                        } />
-                        <Route path="/admin/posts/create"  element={
-                            <RequireAuth>
-                                <CreatePost/>
-                            </RequireAuth>
-                        } />
-                        <Route path="/login"  element={<Login/>} />
-                        <Route path="/register"  element={<Register/>} />
-                        <Route path="*" element={<NotFound/>} />
-                    </Routes>
-                </Router>
+                            <Route path="/admin/posts"  element={
+                                <RequireAuth>
+                                    <Posts/>
+                                </RequireAuth>
+                            } />
+                            <Route path="/admin/posts/:id"  element={
+                                <RequireAuth>
+                                    <EditPost/>
+                                </RequireAuth>
+                            } />
+                            <Route path="/admin/posts/create"  element={
+                                <RequireAuth>
+                                    <CreatePost/>
+                                </RequireAuth>
+                            } />
+                            <Route path="/login"  element={<Login/>} />
+                            <Route path="/register"  element={<Register/>} />
+                            <Route path="*" element={<NotFound/>} />
+                        </Routes>
+                    </Router>
+                </div>
+
             </AuthProvider>
         </Provider>
 

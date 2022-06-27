@@ -2111,41 +2111,44 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 function App() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(mobx_react__WEBPACK_IMPORTED_MODULE_15__.Provider, _objectSpread(_objectSpread({}, _stores_stores__WEBPACK_IMPORTED_MODULE_9__.stores), {}, {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_auth_AuthProvider__WEBPACK_IMPORTED_MODULE_7__.AuthProvider, {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_16__.BrowserRouter, {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_17__.Routes, {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_17__.Route, {
-            path: "/",
-            element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_pages_Home__WEBPACK_IMPORTED_MODULE_8__.Home, {})
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_17__.Route, {
-            path: "/admin",
-            element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_auth_RequireAuth__WEBPACK_IMPORTED_MODULE_6__.RequireAuth, {
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_pages_Admin_Dashboard__WEBPACK_IMPORTED_MODULE_5__.Dashboard, {})
-            })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_17__.Route, {
-            path: "/admin/posts",
-            element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_auth_RequireAuth__WEBPACK_IMPORTED_MODULE_6__.RequireAuth, {
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_pages_Admin_Posts__WEBPACK_IMPORTED_MODULE_4__.Posts, {})
-            })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_17__.Route, {
-            path: "/admin/posts/:id",
-            element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_auth_RequireAuth__WEBPACK_IMPORTED_MODULE_6__.RequireAuth, {
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_pages_Admin_EditPost__WEBPACK_IMPORTED_MODULE_10__.EditPost, {})
-            })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_17__.Route, {
-            path: "/admin/posts/create",
-            element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_auth_RequireAuth__WEBPACK_IMPORTED_MODULE_6__.RequireAuth, {
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_pages_Admin_CreatePost__WEBPACK_IMPORTED_MODULE_11__.CreatePost, {})
-            })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_17__.Route, {
-            path: "/login",
-            element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_pages_Login__WEBPACK_IMPORTED_MODULE_2__.Login, {})
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_17__.Route, {
-            path: "/register",
-            element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_pages_Register__WEBPACK_IMPORTED_MODULE_12__.Register, {})
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_17__.Route, {
-            path: "*",
-            element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_pages_NotFound__WEBPACK_IMPORTED_MODULE_3__.NotFound, {})
-          })]
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("div", {
+        className: "ma3",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_16__.BrowserRouter, {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_17__.Routes, {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_17__.Route, {
+              path: "/",
+              element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_pages_Home__WEBPACK_IMPORTED_MODULE_8__.Home, {})
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_17__.Route, {
+              path: "/admin",
+              element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_auth_RequireAuth__WEBPACK_IMPORTED_MODULE_6__.RequireAuth, {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_pages_Admin_Dashboard__WEBPACK_IMPORTED_MODULE_5__.Dashboard, {})
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_17__.Route, {
+              path: "/admin/posts",
+              element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_auth_RequireAuth__WEBPACK_IMPORTED_MODULE_6__.RequireAuth, {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_pages_Admin_Posts__WEBPACK_IMPORTED_MODULE_4__.Posts, {})
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_17__.Route, {
+              path: "/admin/posts/:id",
+              element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_auth_RequireAuth__WEBPACK_IMPORTED_MODULE_6__.RequireAuth, {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_pages_Admin_EditPost__WEBPACK_IMPORTED_MODULE_10__.EditPost, {})
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_17__.Route, {
+              path: "/admin/posts/create",
+              element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_auth_RequireAuth__WEBPACK_IMPORTED_MODULE_6__.RequireAuth, {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_pages_Admin_CreatePost__WEBPACK_IMPORTED_MODULE_11__.CreatePost, {})
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_17__.Route, {
+              path: "/login",
+              element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_pages_Login__WEBPACK_IMPORTED_MODULE_2__.Login, {})
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_17__.Route, {
+              path: "/register",
+              element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_pages_Register__WEBPACK_IMPORTED_MODULE_12__.Register, {})
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_17__.Route, {
+              path: "*",
+              element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_pages_NotFound__WEBPACK_IMPORTED_MODULE_3__.NotFound, {})
+            })]
+          })
         })
       })
     })
@@ -3003,6 +3006,7 @@ var PostsRaw = function PostsRaw(_ref) {
 
   var renderPagination = function renderPagination() {
     return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      className: "mt2",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("select", {
         name: "limit",
         id: "",
@@ -3021,6 +3025,7 @@ var PostsRaw = function PostsRaw(_ref) {
         })
       }), Array.apply(null, Array(totalPages)).map(function (v, i) {
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+          className: "ml2",
           disabled: page === i + 1,
           onClick: function onClick() {
             setPage(i + 1);
@@ -3047,8 +3052,14 @@ var PostsRaw = function PostsRaw(_ref) {
 
   var SortButtons = function SortButtons(_ref2) {
     var property = _ref2.property;
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("span", {
+      style: {
+        marginLeft: "4px"
+      },
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+        style: {
+          marginRight: '4px'
+        },
         onClick: function onClick() {
           setOrderProperty(property);
           setOrderDirection('asc');
@@ -3085,6 +3096,9 @@ var PostsRaw = function PostsRaw(_ref) {
         children: ["Posts (", count, ")"]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("select", {
+          style: {
+            marginRight: '16px'
+          },
           defaultValue: categoryId,
           onChange: function onChange(e) {
             var value = e.target.value;
@@ -3143,6 +3157,9 @@ var PostsRaw = function PostsRaw(_ref) {
                   children: item.title
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("td", {
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+                    style: {
+                      marginRight: '8px'
+                    },
                     onClick: function onClick() {
                       navigate("/admin/posts/".concat(item.id));
                     },
@@ -3296,12 +3313,14 @@ var Login = (0,mobx_react__WEBPACK_IMPORTED_MODULE_3__.observer)(function () {
       method: "post",
       onSubmit: handleSubmit,
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+        className: "mr2",
         type: "text",
         name: "email",
         placeholder: "email",
         defaultValue: "admin@admin.com",
         required: true
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+        className: "mr2",
         type: "text",
         name: "password",
         placeholder: "password",

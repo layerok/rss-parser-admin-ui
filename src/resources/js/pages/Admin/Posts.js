@@ -45,7 +45,7 @@ const PostsRaw = (
 
 
     const renderPagination = () => {
-        return <div>
+        return <div className={"mt2"}>
             <select name="limit" id="" defaultValue={selectedLimit} onChange={(e) => {
                 const value = e.target.value;
                 setSelectedLimit(value);
@@ -62,7 +62,7 @@ const PostsRaw = (
             </select>
             {
                 Array.apply(null, Array(totalPages)).map((v, i) => (
-                    <button disabled={page === (i + 1)} onClick={() => {
+                    <button className={"ml2"} disabled={page === (i + 1)} onClick={() => {
                         setPage(i + 1);
                         fetch();
                     }} key={i}>{i + 1}</button>
@@ -86,8 +86,8 @@ const PostsRaw = (
     const SortButtons = ({
         property,
                          }) => {
-        return <>
-            <button onClick={() => {
+        return <span style={{marginLeft: "4px"}}>
+            <button style={{marginRight: '4px'}} onClick={() => {
                 setOrderProperty(property);
                 setOrderDirection('asc')
                 fetch();
@@ -102,7 +102,7 @@ const PostsRaw = (
             }
             }>
                 &#8595;
-            </button></>
+            </button></span>
     }
 
     return <div style={{width: '600px'}}>
@@ -112,7 +112,7 @@ const PostsRaw = (
         <div style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
             <h3>Posts ({count})</h3>
             <div>
-                <select defaultValue={categoryId} onChange={(e) => {
+                <select style={{marginRight: '16px'}} defaultValue={categoryId} onChange={(e) => {
                     const value = e.target.value;
                     setCategoryId(value);
                     setPage(1);
@@ -153,7 +153,7 @@ const PostsRaw = (
                                     <td>{item.id}</td>
                                     <td >{item.title}</td>
                                     <td>
-                                        <button onClick={() => {
+                                        <button style={{marginRight: '8px'}} onClick={() => {
                                             navigate(`/admin/posts/${item.id}`)
                                         }}>Edit</button>
                                         <button onClick={() => {

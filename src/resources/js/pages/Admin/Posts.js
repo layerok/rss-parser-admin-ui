@@ -105,7 +105,7 @@ const PostsRaw = (
     return <div style={{width: '600px'}}>
         <button onClick={() => {
             navigate('/admin/posts/create')
-        }}>Create</button>
+        }}>Create post</button>
         <div style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
             <h3>Posts ({count})</h3>
             <div>

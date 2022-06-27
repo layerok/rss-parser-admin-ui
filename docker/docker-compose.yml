@@ -7,24 +7,24 @@ services:
                 uid: 1000
             context: ..
             dockerfile: ./docker/Dockerfile
-        image: test-task
-        container_name: test-task-app
+        image: rss-parser
+        container_name: rss-parser-app
         restart: unless-stopped
         working_dir: /var/www/
         volumes:
             - ../src:/var/www
         networks:
-            - test-task
+            - rss-parser
         depends_on:
             - db
             - nginx
     db:
         image: mysql:8.0
         platform: linux/x86_64
-        container_name: test-task-db
+        container_name: rss-parser-db
         restart: unless-stopped
         environment:
-            MYSQL_DATABASE: test-task
+            MYSQL_DATABASE: rss-parser
             MYSQL_ROOT_PASSWORD: root
             MYSQL_PASSWORD: root
             SERVICE_TAGS: dev
@@ -32,10 +32,10 @@ services:
         volumes:
             - ../docker/mysql:/docker-entrypoint-initdb.d
         networks:
-            - test-task
+            - rss-parser
     nginx:
         image: nginx:1.17-alpine
-        container_name: test-task-nginx
+        container_name: rss-parser-nginx
         restart: unless-stopped
         ports:
             - 8000:80
@@ -43,7 +43,7 @@ services:
             - ../src:/var/www
             - ../docker/nginx:/etc/nginx/conf.d
         networks:
-            - test-task
+            - rss-parser
 networks:
-    test-task:
+    rss-parser:
         driver: bridge

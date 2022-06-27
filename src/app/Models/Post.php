@@ -14,7 +14,7 @@ class Post extends Model
         'description',
         'creator',
         'guid',
-        'link'
+        'link',
     ];
 
     public function categories() {

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\PostResource;
+use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -54,16 +55,28 @@ class PostController extends Controller
         return new PostResource($book);
     }
 
-    public function show(Post $post)
+    public function show($id)
     {
+        $post = Post::with('categories')->where('id', $id)->first();
         return new PostResource($post);
     }
 
     public function update(Request $request, Post $post)
     {
-        //return response()->json(['error' => 'You can only edit your own books.'], 403);
+        $post->categories()->delete();
 
-        $post->update($request->only(['title', 'description', 'creator']));
+        //return response()->json(['error' => 'You can only edit your own books.'], 403);
+        $categories = $request->input('categories');
+        if(isset($categories)) {
+            foreach($categories as $category) {
+                Category::create([
+                    'title' => $category,
+                    'post_id' => $post->id
+                ]);
+            }
+        }
+
+        $post->update($request->only(['title', 'description', 'creator', 'link', 'pubDate']));
 
         return new PostResource($post);
     }

@@ -117,9 +117,9 @@ const PostsRaw = (
                     setPage(1);
                     fetch();
                 }} name="category" id="">
-                    <option value="">all categories</option>
+                    <option key={0} value="">all categories</option>
                     {categories.map((category) => (
-                        <option value={category.id}>{category.title}</option>
+                        <option key={category.id} value={category.id}>{category.title}</option>
                     ))}
 
                 </select>

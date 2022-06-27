@@ -3095,11 +3095,11 @@ var PostsRaw = function PostsRaw(_ref) {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
             value: "",
             children: "all categories"
-          }), categories.map(function (category) {
+          }, 0), categories.map(function (category) {
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
               value: category.id,
               children: category.title
-            });
+            }, category.id);
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
           type: "text",

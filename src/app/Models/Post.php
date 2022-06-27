@@ -13,6 +13,7 @@ class Post extends Model
         'title',
         'description',
         'creator',
+        'pubDate',
         'guid',
         'link',
     ];

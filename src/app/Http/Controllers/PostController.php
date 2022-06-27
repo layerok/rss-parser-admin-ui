@@ -46,13 +46,27 @@ class PostController extends Controller
 
     public function store(Request $request)
     {
-        $book = Post::create([
+
+        $categories = $request->input('categories');
+
+        $post = Post::create([
             'creator' => $request->creator,
             'title' => $request->title,
             'description' => $request->description,
+            'pubDate' => $request->pubDate,
+            'link' => $request->link,
         ]);
 
-        return new PostResource($book);
+        if(isset($categories)) {
+            foreach ($categories as $category) {
+                Category::create([
+                    'title' => $category,
+                    'post_id' => $post->id
+                ]);
+            }
+        }
+
+        return new PostResource($post);
     }
 
     public function show($id)

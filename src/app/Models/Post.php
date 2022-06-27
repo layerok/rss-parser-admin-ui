@@ -17,7 +17,16 @@ class Post extends Model
         'link',
     ];
 
+    public static function boot() {
+        parent::boot();
+
+        static::deleting(function(Post $post) {
+            $post->categories()->delete();
+        });
+    }
+
     public function categories() {
         return $this->hasMany(Category::class);
     }
+
 }

@@ -15,7 +15,7 @@ class PostController extends Controller
         $search = $request->input('search');
         $order_property = $request->input('order_property');
         $order_direction = $request->input('order_direction');
-        $query = Post::query();
+        $query = Post::with('categories');
 
         if($search) {
             $query->where('title', 'like', '%'. $search .'%');

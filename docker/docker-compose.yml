@@ -20,6 +20,7 @@ services:
             - nginx
     db:
         image: mysql:8.0
+        platform: linux/x86_64
         container_name: test-task-db
         restart: unless-stopped
         environment:

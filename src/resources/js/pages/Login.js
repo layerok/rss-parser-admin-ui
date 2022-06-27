@@ -46,11 +46,10 @@ export const Login = observer(() => {
 
     return <div>
         <p>You must log in to view the page at {from}</p>
-        <p>email: admin@admin.com</p>
-        <p>password: qwerty</p>
+
         <form method="post" onSubmit={handleSubmit}>
-            <input type="text" name="email" placeholder="email" required/>
-            <input type="text" name="password" placeholder="password" required/>
+            <input type="text" name="email" placeholder="email" defaultValue={"admin@admin.com"} required/>
+            <input type="text" name="password" placeholder="password" defaultValue={"qwerty"} required/>
             <button type="submit">Login</button>
         </form>
         {auth.loading && (

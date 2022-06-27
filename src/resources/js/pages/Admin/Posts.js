@@ -70,9 +70,9 @@ const PostsRaw = (
 
     const handleInput = (e) => {
         const value = e.target.value;
+        setPage(1);
         if(value) {
             setSearch(value)
-
         } else {
             setSearch("");
         }

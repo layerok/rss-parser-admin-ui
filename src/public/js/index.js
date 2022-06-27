@@ -2833,6 +2833,7 @@ var PostsRaw = function PostsRaw(_ref) {
 
   var handleInput = function handleInput(e) {
     var value = e.target.value;
+    setPage(1);
 
     if (value) {
       setSearch(value);
@@ -3064,10 +3065,6 @@ var Login = (0,mobx_react__WEBPACK_IMPORTED_MODULE_3__.observer)(function () {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("p", {
       children: ["You must log in to view the page at ", from]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-      children: "email: admin@admin.com"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-      children: "password: qwerty"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("form", {
       method: "post",
       onSubmit: handleSubmit,
@@ -3075,11 +3072,13 @@ var Login = (0,mobx_react__WEBPACK_IMPORTED_MODULE_3__.observer)(function () {
         type: "text",
         name: "email",
         placeholder: "email",
+        defaultValue: "admin@admin.com",
         required: true
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
         type: "text",
         name: "password",
         placeholder: "password",
+        defaultValue: "qwerty",
         required: true
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
         type: "submit",

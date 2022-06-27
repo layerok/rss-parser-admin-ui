@@ -13,6 +13,7 @@ import { stores } from "./stores/stores";
 import {EditPost} from "./pages/Admin/EditPost";
 import {CreatePost} from "./pages/Admin/CreatePost";
 import {Register} from "./pages/Register";
+import "tachyons"
 
 function App() {
     return (

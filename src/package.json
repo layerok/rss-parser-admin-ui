@@ -25,6 +25,7 @@
         "mobx-react-lite": "^3.4.0",
         "react-router": "^6.3.0",
         "react-router-dom": "^6.3.0",
-        "react-use": "^17.4.0"
+        "react-use": "^17.4.0",
+        "tachyons": "^4.12.0"
     }
 }

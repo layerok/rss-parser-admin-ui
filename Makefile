@@ -2,13 +2,13 @@
 
 # import config.
 # You can change the default config with `make cnf="config_special.env" build`
-cnf ?= .env
+cnf ?= config.env
 include $(cnf)
 export $(shell sed 's/=.*//' $(cnf))
 
 # import deploy config
 # You can change the default deploy config with `make cnf="deploy_special.env" release`
-dpl ?= .env
+dpl ?= deploy.env
 include $(dpl)
 export $(shell sed 's/=.*//' $(dpl))
 
@@ -31,7 +31,7 @@ help: ## This help.
 
 # Build the container
 build: ## Build the release and develoment container. The development
-	docker-compose build --no-cache $(APP_NAME)
+	docker-compose -f docker/docker-compose.yml build --no-cache $(APP_NAME)
 	docker-compose run $(APP_NAME) grunt build
 	docker build -t $(APP_NAME) .
 
@@ -41,11 +41,13 @@ run: stop ## Run container on port configured in `config.env`
 
 
 dev: ## Run container in development mode
-	docker-compose build --no-cache $(APP_NAME) && docker-compose run $(APP_NAME)
+	docker-compose -f docker/docker-compose.yml build --no-cache $(APP_NAME) && docker-compose run $(APP_NAME)
 
 # Build and run the container
 up: ## Spin up the project
-	docker-compose -f ./docker/docker-compose.yml up --build $(APP_NAME)
+	docker-compose -f docker/docker-compose.yml up --build
+down:
+	docker-compose -f docker/docker-compose.yml down
 
 stop: ## Stop running containers
 	docker stop $(APP_NAME)

@@ -6,7 +6,7 @@ services:
                 user: sammy
                 uid: 1000
             context: ..
-            dockerfile: docker/Dockerfile
+            dockerfile: ./docker/Dockerfile
         image: test-task
         container_name: test-task-app
         restart: unless-stopped

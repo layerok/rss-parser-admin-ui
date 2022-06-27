@@ -15,6 +15,8 @@ class Posts {
     search = "";
     orderDirection = "asc";
     orderProperty = "id";
+    categories = [];
+    categoryId = null;
 
     get totalPages() {
         return Math.ceil(this.count / this.selectedLimit);
@@ -32,9 +34,11 @@ class Posts {
             search: this.search,
             order_direction: this.orderDirection,
             order_property: this.orderProperty,
+            category_id: this.categoryId,
         }).then(res => {
             this.setItems(res.data.data);
             this.setCount(res.data.count);
+            this.setCategories(res.data.categories);
             this.setLoading(false);
         })
     }
@@ -104,6 +108,14 @@ class Posts {
 
     setOrderProperty = property => {
         this.orderProperty = property;
+    }
+
+    setCategories = categories => {
+        this.categories = categories;
+    }
+
+    setCategoryId = id => {
+        this.categoryId = id;
     }
 
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Resources\PostResource;
 use App\Models\Category;
 use App\Models\Post;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -14,12 +15,20 @@ class PostController extends Controller
         $offset = $request->input('offset');
         $limit = $request->input('limit');
         $search = $request->input('search');
+        $category_id = $request->input('category_id');
         $order_property = $request->input('order_property');
         $order_direction = $request->input('order_direction');
         $query = Post::with('categories');
 
+
         if($search) {
             $query->where('title', 'like', '%'. $search .'%');
+        }
+
+        if(isset($category_id)) {
+            $query->whereHas('categories', function(Builder $query) use ($category_id) {
+                $query->where('id', (int)$category_id);
+            });
         }
 
         $count = $query->count();
@@ -40,6 +49,7 @@ class PostController extends Controller
 
         return response()->json([
             'data' => $posts,
+            'categories' => Category::all(),
             'count' => $count
         ]);
     }

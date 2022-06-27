@@ -24,6 +24,8 @@ const PostsRaw = (
             sortDirection,
             sortProperty,
             count,
+            categories,
+            setCategoryId
         }
     }
 ) => {
@@ -109,6 +111,18 @@ const PostsRaw = (
         <div style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
             <h3>Posts ({count})</h3>
             <div>
+                <select onChange={(e) => {
+                    const value = e.target.value;
+                    setCategoryId(value);
+                    setPage(1);
+                    fetch();
+                }} name="category" id="">
+                    <option value="">all categories</option>
+                    {categories.map((category) => (
+                        <option value={category.id}>{category.title}</option>
+                    ))}
+
+                </select>
                 <input type="text" placeholder="search" onInput={handleInput}/>
             </div>
         </div>
@@ -116,41 +130,47 @@ const PostsRaw = (
         <div style={{position: 'relative', display: 'flex', flexDirection: 'column'}}>
             {loading && <Overlay/>}
 
-            <table>
-                <thead>
-                <tr>
-                    <th>
-                        #
-                        <SortButtons property={"id"}/>
-                    </th>
-                    <th style={{width: "400px"}}>
-                        title
-                        <SortButtons property={"title"}/>
-                    </th>
-                    <th>Actions</th>
-                </tr>
-                </thead>
-                <tbody>
-                {items.map((item) => (
-                    <tr key={item.id}>
-                        <td>{item.id}</td>
-                        <td >{item.title}</td>
-                        <td>
-                            <button onClick={() => {
-                                navigate(`/admin/posts/${item.id}`)
-                            }}>Edit</button>
-                            <button onClick={() => {
-                                destroy(item.id).then(() => {
-                                    fetch()
-                                })
-                            }}>Delete</button>
-                        </td>
-                    </tr>
-                ))}
+            {items.length ? (
+                    <>
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>
+                                    #
+                                    <SortButtons property={"id"}/>
+                                </th>
+                                <th style={{width: "400px"}}>
+                                    title
+                                    <SortButtons property={"title"}/>
+                                </th>
+                                <th>Actions</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {items.map((item) => (
+                                <tr key={item.id}>
+                                    <td>{item.id}</td>
+                                    <td >{item.title}</td>
+                                    <td>
+                                        <button onClick={() => {
+                                            navigate(`/admin/posts/${item.id}`)
+                                        }}>Edit</button>
+                                        <button onClick={() => {
+                                            destroy(item.id).then(() => {
+                                                fetch()
+                                            })
+                                        }}>Delete</button>
+                                    </td>
+                                </tr>
+                            ))}
 
-                </tbody>
-            </table>
-            {renderPagination()}
+                            </tbody>
+                        </table>
+                        {renderPagination()}
+                    </>
+                ): 'Nothing is found. Try clearing filters'}
+
+
         </div>
 
 

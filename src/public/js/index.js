@@ -2988,7 +2988,9 @@ var PostsRaw = function PostsRaw(_ref) {
       setOrderProperty = _ref$PostsStore.setOrderProperty,
       sortDirection = _ref$PostsStore.sortDirection,
       sortProperty = _ref$PostsStore.sortProperty,
-      count = _ref$PostsStore.count;
+      count = _ref$PostsStore.count,
+      categories = _ref$PostsStore.categories,
+      setCategoryId = _ref$PostsStore.setCategoryId;
   var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_4__.useNavigate)();
   var debouncedFetch = (0,_hooks_useDebounce__WEBPACK_IMPORTED_MODULE_2__.useDebounce)(function () {
     console.log('debounced');
@@ -3080,12 +3082,30 @@ var PostsRaw = function PostsRaw(_ref) {
       },
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("h3", {
         children: ["Posts (", count, ")"]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("select", {
+          onChange: function onChange(e) {
+            var value = e.target.value;
+            setCategoryId(value);
+            setPage(1);
+            fetch();
+          },
+          name: "category",
+          id: "",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+            value: "",
+            children: "all categories"
+          }), categories.map(function (category) {
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: category.id,
+              children: category.title
+            });
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
           type: "text",
           placeholder: "search",
           onInput: handleInput
-        })
+        })]
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
       style: {
@@ -3093,50 +3113,52 @@ var PostsRaw = function PostsRaw(_ref) {
         display: 'flex',
         flexDirection: 'column'
       },
-      children: [loading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_Overlay__WEBPACK_IMPORTED_MODULE_1__.Overlay, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("table", {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("thead", {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("tr", {
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("th", {
-              children: ["#", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(SortButtons, {
-                property: "id"
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("th", {
-              style: {
-                width: "400px"
-              },
-              children: ["title", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(SortButtons, {
-                property: "title"
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("th", {
-              children: "Actions"
-            })]
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("tbody", {
-          children: items.map(function (item) {
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("tr", {
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("td", {
-                children: item.id
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("td", {
-                children: item.title
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("td", {
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
-                  onClick: function onClick() {
-                    navigate("/admin/posts/".concat(item.id));
-                  },
-                  children: "Edit"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
-                  onClick: function onClick() {
-                    destroy(item.id).then(function () {
-                      fetch();
-                    });
-                  },
-                  children: "Delete"
+      children: [loading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_Overlay__WEBPACK_IMPORTED_MODULE_1__.Overlay, {}), items.length ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("table", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("thead", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("tr", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("th", {
+                children: ["#", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(SortButtons, {
+                  property: "id"
                 })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("th", {
+                style: {
+                  width: "400px"
+                },
+                children: ["title", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(SortButtons, {
+                  property: "title"
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("th", {
+                children: "Actions"
               })]
-            }, item.id);
-          })
-        })]
-      }), renderPagination()]
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("tbody", {
+            children: items.map(function (item) {
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("tr", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("td", {
+                  children: item.id
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("td", {
+                  children: item.title
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("td", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+                    onClick: function onClick() {
+                      navigate("/admin/posts/".concat(item.id));
+                    },
+                    children: "Edit"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+                    onClick: function onClick() {
+                      destroy(item.id).then(function () {
+                        fetch();
+                      });
+                    },
+                    children: "Delete"
+                  })]
+                })]
+              }, item.id);
+            })
+          })]
+        }), renderPagination()]
+      }) : 'Nothing is found. Try clearing filters']
     })]
   });
 };
@@ -3793,6 +3815,10 @@ var Posts = /*#__PURE__*/function () {
 
     _defineProperty(this, "orderProperty", "id");
 
+    _defineProperty(this, "categories", []);
+
+    _defineProperty(this, "categoryId", null);
+
     _defineProperty(this, "fetch", function () {
       _this.setLoading(true);
 
@@ -3801,11 +3827,14 @@ var Posts = /*#__PURE__*/function () {
         offset: _this.offset,
         search: _this.search,
         order_direction: _this.orderDirection,
-        order_property: _this.orderProperty
+        order_property: _this.orderProperty,
+        category_id: _this.categoryId
       }).then(function (res) {
         _this.setItems(res.data.data);
 
         _this.setCount(res.data.count);
+
+        _this.setCategories(res.data.categories);
 
         _this.setLoading(false);
       });
@@ -3875,6 +3904,14 @@ var Posts = /*#__PURE__*/function () {
 
     _defineProperty(this, "setOrderProperty", function (property) {
       _this.orderProperty = property;
+    });
+
+    _defineProperty(this, "setCategories", function (categories) {
+      _this.categories = categories;
+    });
+
+    _defineProperty(this, "setCategoryId", function (id) {
+      _this.categoryId = id;
     });
 
     (0,mobx__WEBPACK_IMPORTED_MODULE_1__.makeAutoObservable)(this);

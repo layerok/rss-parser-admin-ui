@@ -16,4 +16,8 @@ class Post extends Model
         'guid',
         'link'
     ];
+
+    public function categories() {
+        return $this->hasMany(Category::class);
+    }
 }

@@ -2870,7 +2870,7 @@ var PostsRaw = function PostsRaw(_ref) {
       onClick: function onClick() {
         navigate('/admin/posts/create');
       },
-      children: "Create"
+      children: "Create post"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
       style: {
         display: 'flex',
@@ -3062,6 +3062,10 @@ var Login = (0,mobx_react__WEBPACK_IMPORTED_MODULE_3__.observer)(function () {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("p", {
       children: ["You must log in to view the page at ", from]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+      children: "email: admin@admin.com"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+      children: "password: qwerty"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("form", {
       method: "post",
       onSubmit: handleSubmit,
